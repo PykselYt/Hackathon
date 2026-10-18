@@ -1,0 +1,92 @@
+DETECTOR DE VEHICULE IN INTERSECTIE - VERSIUNEA 1.5 - PIATA UNIRII IASI
+=======================================================================
+
+Versiune facuta special pentru camera din Piata Unirii (webcamromania.ro, stream pe tot ecranul).
+ - BENZILE sunt desenate exact pe marcajele de pe asfalt (fisierul benzi_fixe.json):
+     Bulevard (Bd): 2 benzi spre intersectie (B1 langa spatiul verde) | linia dubla |
+                    3 benzi care pleaca (B1 langa statia de taxi)
+     Strada din dreapta (Dr): ramura de sus vine spre intersectie (2 benzi),
+                    ramura de jos, langa parcare, pleaca (2 benzi)
+   Galben = benzi spre intersectie, albastru = benzi care pleaca.
+ - Sensul unui vehicul pe o banda e sensul benzii; cine vireaza peste benzile celuilalt
+   sens primeste sensul dupa cum merge, fara banda.
+ - Parcarile camerei sunt desenate si ele: masinile oprite acolo devin imediat "parcate".
+ - Autobuzele si tramvaiele sunt o singura categorie: TRANSPORT COMUN (albastru), si in panou,
+   si in fisierele CSV (coloana transport_comun).
+ - Pe alte camere, programul invata benzile singur (ca in versiunea 2).
+
+
+CE E NOU IN VERSIUNEA 2
+ - SENS: vehiculele care COBOARA pe imagine "INTRA" (vin spre intersectie),
+   cele care URCA "IESE" (pleaca din intersectie). Invers:  porneste.bat --inverseaza-sensul
+ - ASTEAPTA: vehiculele oprite care vin spre intersectie apar "ASTEAPTA 12s" si sunt numarate
+   in panou ("Asteapta sa intre: 5  (B1:2 B2:3)").
+ - BENZI: invata singur benzile din traseele masinilor (cateva minute de trafic) si le
+   numeroteaza de la bordura spre mijloc, pe fiecare sens: B1 = banda de langa bordura.
+   Linii galbene = benzile spre intersectie, albastre = benzile dinspre intersectie.
+   Merge cand camera priveste in lungul strazii (benzile converg spre un punct).
+   Benzile odata invatate raman, chiar daca traficul scade (numarul lor doar creste).
+   Daca au iesit gresit:  porneste.bat --reseteaza-benzi  (cu acea camera deschisa).
+ - NUMARARE: fiecare vehicul e numarat o singura data (intrate / iesite, pe banda si pe tip).
+   Totalurile apar in panou; pe minut se salveaza in folderul "numaratori" (CSV, se deschide in Excel).
+ - Numerele vehiculelor merg pana la #1000, apoi o iau de la #1.
+
+
+CE FACE
+ - se uita la ecranul tau (unde ai deschis camera) si deseneaza CONTURUL fiecarui vehicul:
+     verde    = masina in miscare (+ sageata cu directia)
+     rosu     = masina OPRITA pe drum (cu cate secunde sta)
+     albastru = autobuz        mov = tramvai   (eticheta rosie "OPRIT" cand stau)
+     gri punctat = parcata -> ignorata (nu intra in numaratoare)
+ - fiecare vehicul are un numar (#12) care ramane acelasi cat timp e urmarit; chenarele duble
+   pe acelasi vehicul (ex. "masina" + "duba", bucati de tramvai) sunt unite intr-unul singur.
+ - un panou mic arata cate vehicule sunt in miscare / oprite si in ce directii merg.
+
+INSTALARE (o singura data)
+ 1. Dublu-click pe  instalare.bat  (dureaza cateva minute).
+ 2. Doar daca ai placa video NVIDIA: dublu-click pe  instalare_gpu_nvidia.bat  (mult mai rapid).
+
+PORNIRE
+ - Deschide camera in browser, pe tot ecranul (F11 sau butonul de fullscreen al playerului).
+ - Dublu-click pe  porneste.bat.
+   Prima pornire descarca modelul (~30 MB) si un fisier pentru intelegerea cuvintelor (~250 MB).
+ - Oprire: butonul "Opreste" din panoul "Detector intersectie".
+
+CUM STIE CE E PARCAT (merge pe orice intersectie)
+ - Programul recunoaste singur camera (dupa "amprenta" imaginii: cladiri, borduri, marcaje)
+   si tine cate o harta a drumului pentru fiecare camera, in folderul "harti".
+   Camera noua -> invata drumul de la zero din cateva minute de trafic.
+   Revii la o camera vazuta -> isi reincarca harta ei. Schimbi camera cat ruleaza -> observa in ~20 s.
+ - Harta pentru Piata Unirii Iasi vine deja invatata.
+ - Bifeaza "Arata drumul invatat" in panou ca sa vezi conturul drumului.
+ - Oprit PE DRUM -> "OPRIT" (numarat: semafor, coada, blocaj).
+ - Oprit IN AFARA drumului -> dupa cateva secunde devine parcat (gri, ignorat).
+ - Nemiscat mai mult de 2 minute -> parcat, oriunde ar fi (tramvaiele si autobuzele nu).
+   Schimbi timpul cu:  porneste.bat --parcat-dupa 180
+ - Daca harta unei camere a iesit gresit:  porneste.bat --reseteaza-harta  (cu acea camera deschisa).
+
+ALT ARANJAMENT DE ECRAN (stream-ul nu e pe tot ecranul)
+   dublu-click pe  configureaza.bat  -> tragi un dreptunghi peste imaginea camerei + Enter.
+   Poti desena si zone optionale (p = PARCARE, d = DRUM), dar de obicei nu e nevoie.
+
+VITEZA (optimizari automate)
+ - Rezolutie adaptiva: programul tinteste 8 cadre/s si coboara/urca singur rezolutia de analiza,
+   dar niciodata sub 512 (altfel masinile mici dispar; schimbi cu --rez-minima)
+   (vezi "rezolutie" in panou). Alt prag:  porneste.bat --fps-tinta 10
+ - Fara placa NVIDIA: OpenVINO, care alege singur cel mai rapid: placa video Intel sau procesorul.
+ - Dupa ce invata bine drumul (~10 min de trafic), analizeaza doar zona cu drum, la finete mare.
+   La fiecare al 8-lea cadru se uita totusi la toata imaginea, ca sa gaseasca drumuri noi.
+ - Cu placa NVIDIA: FP16.
+ Daca tot e sub 5 cadre/s:  porneste.bat --model yoloe-26n-seg.pt   (model mai mic, de ~2x mai rapid)
+ Mai multa precizie pe vehicule mici (daca ai viteza):  porneste.bat --detaliu 1280
+ Dezactivare optimizari (daca apare vreo problema):  --fara-openvino   --fara-decupare
+
+ALTE MODURI
+   porneste.bat --mod fereastra                 imaginea adnotata intr-o fereastra separata
+   porneste.bat --video clip.mp4 --salveaza rezultat.mp4    analizeaza un fisier video
+   porneste.bat --monitor 2                     daca stream-ul e pe al doilea monitor
+   porneste.bat --model yolo11s-seg.pt          modelul clasic (nu stie "tramvai")
+
+LIMITARI CUNOSCUTE
+ - Masinile foarte mici, din fundal, pot fi ratate. Directiile sunt relative la ecran.
+ - Overlay-ul are nevoie de Windows 10 (versiunea 2004+) sau Windows 11.

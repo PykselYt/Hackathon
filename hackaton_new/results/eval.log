@@ -1,0 +1,30 @@
+Using libsumo as traci as requested by environment variable.
+50 runs on 14 workers…
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+Using libsumo as traci as requested by environment variable.
+
+scenario variant                wait s   trip s   veh/h   maxQ  vs fix  vs act
+normal   fixed_program     58.0 ±  5.8    160.5    3532    194     +0%    -16%
+normal   actuated          68.8 ±  7.9    177.4    3473    183    +19%     +0%
+normal   max_pressure      50.6 ±  5.8    153.2    3490    130    -13%    -26%
+normal   ppo               46.4 ±  6.3    156.6    3548    128    -20%    -33%
+normal   ppo+guard         46.4 ±  6.3    156.6    3548    128    -20%    -33%
+rush     fixed_program     63.6 ±  6.7    170.3    3722    206     +0%    -20%
+rush     actuated          79.6 ±  7.2    193.5    3658    220    +25%     +0%
+rush     max_pressure      51.4 ±  7.1    157.0    3700    128    -19%    -35%
+rush     ppo               50.7 ±  8.6    165.6    3736    140    -20%    -36%
+rush     ppo+guard         50.7 ±  8.6    165.6    3736    140    -20%    -36%
+
+OK: results/eval.csv, results/eval_summary.csv, results/eval.png

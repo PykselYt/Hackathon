@@ -1,0 +1,7 @@
+ultralytics>=8.4.0
+mss>=9.0
+opencv-python
+scipy
+numpy
+clip @ https://github.com/ultralytics/CLIP/archive/refs/heads/main.zip
+openvino>=2024.0.0

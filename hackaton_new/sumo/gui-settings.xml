@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sumo-gui view for the projector: A and B in frame, boulevard pointing away from the camera (upwards). -->
+<viewsettings>
+    <scheme name="real world"/>
+    <viewport zoom="300" x="173" y="-73" angle="0"/>
+    <delay value="500"/>
+</viewsettings>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Road types for the Piața Unirii network (loaded via the type-files option). Every road has sidewalks. -->
+<types>
+    <type id="major" numLanes="3" speed="13.89" priority="4" sidewalkWidth="3.0"/>
+    <type id="blv"   numLanes="2" speed="13.89" priority="3" sidewalkWidth="3.0"/>
+    <type id="side"  numLanes="2" speed="13.89" priority="2" sidewalkWidth="2.5"/>
+    <type id="local" numLanes="1" speed="13.89" priority="2" sidewalkWidth="2.0"/>
+</types>

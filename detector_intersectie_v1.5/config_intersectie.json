@@ -1,0 +1,6 @@
+{
+ "_info": "regiune null = tot monitorul. Zonele sunt optionale (drumul se invata singur). Refa cu --configurare.",
+ "monitor": 1,
+ "regiune": null,
+ "zone": {}
+}

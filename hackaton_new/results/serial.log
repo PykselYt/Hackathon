@@ -1,0 +1,36 @@
+12:02:09 open /dev/ttys007
+12:02:26 serial error: write failed: [Errno 5] Input/output error
+15:43:59 open COM5
+15:45:46 ignored: 'FAIL:1'
+15:45:49 ignored: 'FAIL:1'
+15:45:50 ignored: 'FAIL:1'
+15:45:53 ignored: 'EMG:1'
+15:46:02 ignored: 'FAIL:1'
+15:46:03 ignored: 'FAIL:1'
+15:46:04 ignored: 'FAIL:1'
+15:47:43 ignored: 'FAIL:1'
+15:47:48 ignored: 'FAIL:1'
+15:48:10 ignored: 'FAIL:1'
+15:48:11 ignored: 'FAIL:1'
+15:48:13 ignored: 'FAIL:1'
+15:48:14 ignored: 'FAIL:1'
+15:48:15 ignored: 'FAIL:1'
+15:48:35 serial error: ClearCommError failed (PermissionError(13, 'Access is denied.', None, 5))
+15:48:41 open COM5
+15:48:46 serial error: ClearCommError failed (PermissionError(13, 'Access is denied.', None, 5))
+15:48:48 open COM5
+15:48:51 serial error: ClearCommError failed (PermissionError(13, 'Access is denied.', None, 5))
+15:48:53 open failed: could not open port 'COM5': OSError(22, 'A device which does not exist was specified.', None, 433)
+15:48:55 open COM5
+15:48:58 serial error: ClearCommError failed (PermissionError(13, 'Access is denied.', None, 5))
+15:49:00 open COM5
+15:49:04 serial error: ClearCommError failed (PermissionError(13, 'Access is denied.', None, 5))
+15:49:06 open COM5
+15:49:07 serial error: ClearCommError failed (PermissionError(13, 'Access is denied.', None, 5))
+15:49:09 open COM5
+17:22:56 open COM5
+17:26:34 serial error: ClearCommError failed (PermissionError(13, 'Access is denied.', None, 5))
+17:26:36 open COM5
+17:26:40 serial error: ClearCommError failed (PermissionError(13, 'Access is denied.', None, 5))
+17:26:58 open COM5
+18:13:46 serial error: ClearCommError failed (PermissionError(13, 'Access is denied.', None, 5))

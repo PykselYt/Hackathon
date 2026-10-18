@@ -1,0 +1,67 @@
+# config.yaml — single source of configuration (PLAN.md §4)
+location:
+  name: "Piața Unirii, Iași"
+  lat: 47.16569
+  lon: 27.58014
+sumo:
+  net: sumo/net.net.xml
+  net_actuated: sumo/net_actuated.net.xml
+  routes: sumo/routes.rou.xml
+  cfg: sumo/demo.sumocfg
+  osm: sumo/map.osm         # building footprints for the 3D map
+  gui_settings: sumo/gui-settings.xml
+  seed: 42
+  time_to_teleport: -1
+sim:
+  speed: 2                  # 2 = twice as fast as real time
+  episode_s: 3600
+  gui: auto                 # auto = sumo-gui when an X server is available (XQuartz on macOS)
+tls:
+  ids: [A, B, C, D, E]
+  main: A                   # junction mirrored on the ESP32 and seen by the camera
+  yellow_s: 3
+  min_green_s: 10
+  max_green_s: 60
+  fixed_program:            # classic lights: 90 s cycle, applied by scripts/tune_tls.py at build time
+    major_s: 57
+    minor_s: 27
+  phase_labels:             # green phase index -> label shown on dashboard / LCD
+    A: ["Bulevard", "Ștefan cel Mare"]
+    B: ["Bulevard", "Brătianu"]
+    C: ["Spre Unirii", "Spre Brătianu + pietoni"]
+    D: ["Independenței", "Brătianu"]
+    E: ["Arcu", "Gării"]
+rl:
+  delta_time: 5
+  model_path: ai/models/ppo_traffic.zip
+controller: ppo             # ppo | max_pressure | fixed — ppo won results/eval (see results/eval_summary.csv)
+spillback:
+  enabled: true
+  occupancy_threshold: 0.85
+rush_hour:
+  vehicles: 200             # visible on the chart; check_net.py --rush 300 still has no gridlock
+  spread_s: 60
+  routes: [blv_dir1, blv_dir2]
+serial:
+  port: /dev/cu.usbserial-0001   # on Windows e.g. COM5; if missing, the first CP210x/CH340 adapter is used
+  baud: 115200
+  send_interval_ms: 500
+  ack_timeout_ms: 2000
+server:
+  host: 127.0.0.1
+  port: 3000
+  history_points: 900       # ticks kept for a page refresh (1 tick per simulated second)
+vision:
+  enabled: true
+  mode: panel               # panel | twin
+  source: file              # file | screen | snapshot | stream
+  file: vision/clips/piata_unirii_1700.mp4
+  screen_region: {left: 0, top: 0, width: 1280, height: 720}
+  snapshot_url: ""
+  stream_url: ""
+  fps: 10
+  zones: vision/zones.json
+  model: yolo11n.pt
+  imgsz: 640
+  conf: 0.35
+  stream_port: 8001

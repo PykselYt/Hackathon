@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Edges of the Piața Unirii network. Shapes follow the OSM geometry. The tram is not modelled yet (PLAN.md §6 step 7).
+  Edge ids used by routes and the vision module: blv_w_in / cuza_ab (towards B, away from the camera),
+  cuza_ba / blv_w_out (towards the camera), scm_in (side street entering A from the right of the frame).
+-->
+<edges>
+    <!-- Boulevard: Gării / Arcu (E) - Piața Unirii (A) - Cuza Vodă (B) -->
+    <edge id="blv_w_in"   from="E" to="A" type="blv" name="Strada Arcu" shape="-445.00,181.00 -235.00,96.00 0.00,0.00"/>
+    <edge id="blv_w_out"  from="A" to="E" type="blv" name="Strada Arcu" shape="0.00,0.00 -235.00,96.00 -445.00,181.00"/>
+    <edge id="cuza_ab"    from="A" to="B" type="blv" name="Strada Cuza Vodă"
+          shape="0.00,0.00 123.00,-45.00 213.00,-85.00 301.00,-126.00 346.00,-147.00"/>
+    <edge id="cuza_ba"    from="B" to="A" type="blv" name="Strada Cuza Vodă"
+          shape="346.00,-147.00 301.00,-126.00 213.00,-85.00 123.00,-45.00 0.00,0.00"/>
+    <edge id="cuza_e_out" from="B" to="CE" type="blv" name="Strada Cuza Vodă"/>
+    <edge id="cuza_e_in"  from="CE" to="B" type="blv" name="Strada Cuza Vodă"/>
+
+    <!-- Bd. Ștefan cel Mare: A - C (right of the camera frame) -->
+    <edge id="scm_in"  from="C" to="A" type="side" name="Bulevardul Ștefan cel Mare și Sfânt" shape="196.00,-365.00 106.00,-211.00 0.00,0.00"/>
+    <edge id="scm_out" from="A" to="C" type="side" name="Bulevardul Ștefan cel Mare și Sfânt" shape="0.00,0.00 106.00,-211.00 196.00,-365.00"/>
+
+    <!-- Str. I.C. Brătianu: C - B - D -->
+    <edge id="brat_s_in"  from="C" to="B" type="side" name="Strada Ion Constantin Brătianu" shape="196.00,-365.00 293.00,-272.00 330.00,-187.00 346.00,-147.00"/>
+    <edge id="brat_s_out" from="B" to="C" type="side" name="Strada Ion Constantin Brătianu" shape="346.00,-147.00 330.00,-187.00 293.00,-272.00 196.00,-365.00"/>
+    <edge id="brat_n_in"  from="D" to="B" type="local" name="Strada Ion Constantin Brătianu"
+          shape="468.00,94.00 417.00,-21.00 396.00,-58.00 366.00,-107.00 346.00,-147.00"/>
+    <edge id="brat_n_out" from="B" to="D" type="local" name="Strada Ion Constantin Brătianu"
+          shape="346.00,-147.00 366.00,-107.00 396.00,-58.00 417.00,-21.00 468.00,94.00"/>
+
+    <!-- Bd. Independenței at D -->
+    <edge id="indep_e_in"  from="DE" to="D" type="major" name="Bulevardul Independenței"/>
+    <edge id="indep_e_out" from="D" to="DE" type="major" name="Bulevardul Independenței"/>
+    <edge id="indep_w_in"  from="DW" to="D" type="major" name="Bulevardul Independenței"/>
+    <edge id="indep_w_out" from="D" to="DW" type="major" name="Bulevardul Independenței"/>
+
+    <!-- Arcu x Gării at E -->
+    <edge id="garii_n_in"  from="EN" to="E" type="local" name="Strada Gării"/>
+    <edge id="garii_n_out" from="E" to="EN" type="local" name="Strada Gării"/>
+    <edge id="garii_s_in"  from="ES" to="E" type="blv" name="Strada Gării"/>
+    <edge id="garii_s_out" from="E" to="ES" type="blv" name="Strada Gării"/>
+    <edge id="sarcu_in"    from="EW" to="E" type="blv" name="Șoseaua Arcu"/>
+    <edge id="sarcu_out"   from="E" to="EW" type="blv" name="Șoseaua Arcu"/>
+</edges>

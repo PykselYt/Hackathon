@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Piața Unirii, Iași and the four signalised junctions around it. Local metres (x = east, y = north),
+  origin = junction A, lat 47.16569, lon 27.58014. Positions projected from OpenStreetMap (sumo/map.osm).
+-->
+<nodes>
+    <!-- Signalised junctions (traffic light id = node id) -->
+    <node id="A" x="0.00"    y="0.00"    type="traffic_light" tl="A"/>  <!-- Piața Unirii: Arcu x Cuza Vodă x Ștefan cel Mare (camera) -->
+    <node id="B" x="346.00"  y="-147.00" type="traffic_light" tl="B"/>  <!-- Cuza Vodă x I.C. Brătianu -->
+    <node id="C" x="196.00"  y="-365.00" type="traffic_light" tl="C"/>  <!-- Ștefan cel Mare x I.C. Brătianu, signalised crossing -->
+    <node id="D" x="468.00"  y="94.00"   type="traffic_light" tl="D"/>  <!-- Bd. Independenței x I.C. Brătianu -->
+    <node id="E" x="-445.00" y="181.00"  type="traffic_light" tl="E"/>  <!-- Arcu x Gării -->
+
+    <!-- Boundary nodes (vehicle and pedestrian sources / sinks) -->
+    <node id="CE"  x="577.00"  y="-264.00" type="priority"/>  <!-- Cuza Vodă, east of B -->
+    <node id="DE"  x="654.00"  y="20.00"   type="priority"/>  <!-- Independenței, east of D -->
+    <node id="DW"  x="278.00"  y="157.00"  type="priority"/>  <!-- Independenței, west of D -->
+    <node id="EN"  x="-287.00" y="303.00"  type="priority"/>  <!-- Gării, north-east of E -->
+    <node id="EW"  x="-629.00" y="287.00"  type="priority"/>  <!-- Șoseaua Arcu, north-west of E -->
+    <node id="ES"  x="-620.00" y="84.00"   type="priority"/>  <!-- Gării, south-west of E (towards the station) -->
+</nodes>

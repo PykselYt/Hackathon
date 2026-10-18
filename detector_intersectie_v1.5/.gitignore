@@ -1,0 +1,16 @@
+# mediul Python si cache
+.venv/
+__pycache__/
+*.pyc
+
+# modele descarcate automat la prima pornire (mari)
+*.pt
+*.ts
+*_openvino_model/
+*_openvino_dinamic/
+prompturi_*.npz
+
+# rezultate locale
+*.mp4
+*_harta.npz
+numaratori/

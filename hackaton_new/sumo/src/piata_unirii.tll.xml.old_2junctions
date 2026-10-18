@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Fixed-time program of the "classic" traffic lights (90 s cycle, boulevard-weighted split).
+  Link order follows the generated network (A: 0-2 cuza_ba, 3-5 scm_in, 6-8 blv_w_in;
+  B: 0-2 brat_n_in, 3-6 cuza_e_in, 7-9 brat_s_in, 10-13 cuza_ab). Re-check the states if the edges change.
+-->
+<tlLogics>
+    <tlLogic id="A" type="static" programID="0" offset="0">
+        <phase duration="57" state="GGgrrrGGG"/>  <!-- boulevard -->
+        <phase duration="3"  state="yyyrrrGyy"/>
+        <phase duration="27" state="rrrGGGGrr"/>  <!-- Bd. Stefan cel Mare -->
+        <phase duration="3"  state="rrryyyGrr"/>
+    </tlLogic>
+    <tlLogic id="B" type="static" programID="0" offset="20">
+        <phase duration="57" state="rrrGGGgrrrGGGg"/>  <!-- boulevard -->
+        <phase duration="3"  state="rrryyyyrrryyyy"/>
+        <phase duration="27" state="GGgrrrrGGgrrrr"/>  <!-- I.C. Bratianu -->
+        <phase duration="3"  state="yyyrrrryyyrrrr"/>
+    </tlLogic>
+</tlLogics>

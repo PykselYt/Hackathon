@@ -1,0 +1,202 @@
+{
+  "coords": "normalized",
+  "reference_frame": [
+    2144,
+    1240
+  ],
+  "crop": [
+    0.466,
+    0.266,
+    0.938,
+    0.98
+  ],
+  "lanes": [
+    {
+      "id": "blv_dir1",
+      "label": "Bulevard, direcția care se îndepărtează (coada vizibilă)",
+      "role": "queue",
+      "polygon": [
+        [
+          0.547,
+          0.419
+        ],
+        [
+          0.589,
+          0.419
+        ],
+        [
+          0.875,
+          0.972
+        ],
+        [
+          0.709,
+          0.972
+        ]
+      ]
+    },
+    {
+      "id": "blv_dir2",
+      "label": "Bulevard, direcția spre cameră (doar sosiri)",
+      "role": "arrivals",
+      "polygon": [
+        [
+          0.513,
+          0.419
+        ],
+        [
+          0.547,
+          0.419
+        ],
+        [
+          0.709,
+          0.972
+        ],
+        [
+          0.603,
+          0.972
+        ]
+      ]
+    },
+    {
+      "id": "lateral",
+      "label": "Strada laterală din dreapta",
+      "role": "queue",
+      "polygon": [
+        [
+          0.616,
+          0.464
+        ],
+        [
+          0.728,
+          0.379
+        ],
+        [
+          0.788,
+          0.407
+        ],
+        [
+          0.667,
+          0.528
+        ]
+      ]
+    }
+  ],
+  "stop_line": {
+    "a": [
+      0.504,
+      0.397
+    ],
+    "b": [
+      0.578,
+      0.397
+    ]
+  },
+  "entry_lines": [
+    {
+      "approach": "blv_dir1",
+      "a": [
+        0.688,
+        0.9
+      ],
+      "b": [
+        0.837,
+        0.9
+      ]
+    },
+    {
+      "approach": "blv_dir2",
+      "a": [
+        0.534,
+        0.55
+      ],
+      "b": [
+        0.585,
+        0.55
+      ]
+    },
+    {
+      "approach": "lateral",
+      "a": [
+        0.715,
+        0.395
+      ],
+      "b": [
+        0.77,
+        0.42
+      ]
+    }
+  ],
+  "exclude": [
+    {
+      "id": "parcare_dreapta",
+      "polygon": [
+        [
+          0.739,
+          0.484
+        ],
+        [
+          0.975,
+          0.516
+        ],
+        [
+          0.975,
+          0.976
+        ],
+        [
+          0.879,
+          0.976
+        ]
+      ]
+    },
+    {
+      "id": "parcare_stanga_jos",
+      "polygon": [
+        [
+          0.0,
+          0.766
+        ],
+        [
+          0.354,
+          0.871
+        ],
+        [
+          0.354,
+          0.976
+        ],
+        [
+          0.0,
+          0.976
+        ]
+      ]
+    },
+    {
+      "id": "parcate_jos_centru",
+      "polygon": [
+        [
+          0.382,
+          0.887
+        ],
+        [
+          0.499,
+          0.887
+        ],
+        [
+          0.499,
+          0.976
+        ],
+        [
+          0.382,
+          0.976
+        ]
+      ]
+    }
+  ],
+  "ignore_classes": [
+    "person",
+    "train"
+  ],
+  "stopped": {
+    "window_s": 2.0,
+    "max_move_rel_height": 0.15
+  }
+}

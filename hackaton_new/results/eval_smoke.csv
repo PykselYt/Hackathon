@@ -1,0 +1,11 @@
+variant,scenario,seed,mean_wait_s,mean_duration_s,arrived_per_h,max_queue,vehicles,holds
+fixed_program,normal,11,14.82,88.1,2756.0,57,2808,0
+actuated,normal,11,4.79,76.8,2756.0,41,2808,0
+max_pressure,normal,11,8.0,79.35,2758.0,25,2808,0
+fixed,normal,11,14.72,87.51,2755.0,73,2808,0
+max_pressure+guard,normal,11,8.0,79.35,2758.0,25,2808,0
+fixed_program,rush,11,15.33,89.24,2835.0,68,2888,0
+actuated,rush,11,4.37,76.48,2839.0,22,2888,0
+max_pressure,rush,11,7.44,79.05,2834.0,34,2888,0
+fixed,rush,11,15.15,88.54,2835.0,81,2888,0
+max_pressure+guard,rush,11,7.44,79.05,2834.0,34,2888,0
