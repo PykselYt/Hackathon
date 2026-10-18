@@ -12,3 +12,7 @@ To test vision on your screen:
 -run instalare.bat
 -open, for example (https://www.vision-environnement.com/webcam/roumanie/iasi/5084-piata-unirii-iasi/) an intersection view
 -open porneste.bat
+
+
+!Detector_intersectie_v1.5 only worrks in this video link https://www.vision-environnement.com/webcam/roumanie/iasi/5084-piata-unirii-iasi/
+-same instalation as above
