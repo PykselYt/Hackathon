@@ -1,3 +1,6 @@
+The presentation file is our teams presentation. Download it and open it with a browser
+
+
 For windows demo:
 -extract hackathon_new.zip
 -run hackathon/scripts/setup_windows.bat
